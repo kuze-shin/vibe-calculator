@@ -8,7 +8,6 @@
 </head>
 <body>
 
-<!-- Calculator/Converter -->
 <div class="box">
     <input type="text" class="display" id="out" readonly placeholder="Calculator">
     
@@ -26,7 +25,6 @@
     </div>
 </div>
 
-<!-- Music Player -->
 <div class="box center-box">
     <div class="row">
         <span>Theme</span>
@@ -57,8 +55,6 @@ const out = document.getElementById('out');
 const songTitle = document.getElementById('songTitle');
 const playBtn = document.getElementById('playBtn');
 const viz = document.getElementById('viz');
-
-/* ---------------- CONVERTER ---------------- */
 
 const modes = [
     "Calculator",
@@ -114,8 +110,6 @@ function input(v) {
     out.value += v;
 }
 
-/* ---------------- MUSIC ---------------- */
-
 const songs = [
     { title: "Blue - Yung Kai", src: "blue.mp3" },
     { title: "Kalapastangan - fitterkarma", src: "kalapastangan.mp3" },
@@ -156,8 +150,6 @@ function changeSong(dir, force = false) {
     }
 }
 
-/* ---------------- SYSTEM ---------------- */
-
 function theme() {
     beep();
     document.body.dataset.theme =
@@ -188,3 +180,4 @@ document.onkeydown = e => {
 
 </body>
 </html>
+
