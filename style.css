@@ -1,0 +1,83 @@
+:root {
+    --bg: #121212; --box: #1e1e1e; --txt: #fff; --btn: #2d2d2d;
+    --acc: #0abde3; --op: #ff9f43; 
+}
+[data-theme="light"] {
+    --bg: #f1f2f6; --box: #fff; --txt: #2f3542; --btn: #f1f2f6;
+    --acc: #1dd1a1; --op: #ff6b6b;
+}
+body {
+    background: var(--bg); color: var(--txt); height: 100vh; margin: 0;
+    display: flex; justify-content: center; align-items: center; gap: 20px;
+    font-family: sans-serif; transition: 0.3s; flex-wrap: wrap;
+}
+.box {
+    background: var(--box); padding: 20px; border-radius: 20px;
+    width: 300px; box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    display: flex; flex-direction: column; gap: 15px; transition: background 0.3s;
+}
+.display {
+    width: 100%; height: 60px; background: var(--bg); border: none;
+    color: var(--txt); font-size: 2rem; text-align: right; padding: 10px;
+    border-radius: 10px; outline: none; box-sizing: border-box;
+}
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+button {
+    padding: 15px; border: none; border-radius: 10px; font-size: 1.2rem;
+    background: var(--btn); color: var(--txt); cursor: pointer; font-weight: bold;
+    transition: 0.2s;
+}
+button:active { transform: scale(0.95); }
+.op { color: var(--op); }
+.eq { background: var(--acc); color: #fff; grid-column: span 2; }
+.ac { color: #ff4757; }
+/* Equal button split */
+.eq-split {
+    grid-column: span 1 !important;
+}
+
+/* Mode button style */
+.mode-btn {
+    background-color: #576574 !important;
+    color: white;
+}
+
+/* Divider line */
+.divider {
+    width: 100%;
+    opacity: 0.2;
+}
+
+/* Features & Music Controls */
+.row { display: flex; justify-content: space-between; align-items: center; }
+.controls { display: flex; justify-content: center; gap: 20px; align-items: center; }
+.ctrl-btn { background: none; font-size: 1.5rem; padding: 5px; }
+.play-btn { font-size: 2rem; }
+
+/* Centered music player box */
+.center-box {
+    text-align: center;
+}
+/* Volume slider */
+.volume {
+    width: 100%;
+    margin-top: 10px;
+}
+.toggle {
+    width: 40px; height: 20px; background: var(--btn); border-radius: 20px;
+    position: relative; cursor: pointer;
+}
+.toggle::after {
+    content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px;
+    background: var(--txt); border-radius: 50%; transition: 0.3s;
+}
+[data-theme="light"] .toggle::after { left: 22px; }
+
+/* Visualizer */
+.bars { display: flex; justify-content: center; align-items: flex-end; height: 30px; gap: 3px; }
+.bar { width: 6px; background: var(--acc); animation: bounce 1s infinite; border-radius: 5px; }
+.paused .bar { animation-play-state: paused; height: 5px !important; transition: 0.5s; }
+.bar:nth-child(1) { animation-delay: 0.1s; } .bar:nth-child(2) { animation-delay: 0.3s; }
+.bar:nth-child(3) { animation-delay: 0.2s; } .bar:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes bounce { 0%,100%{height:5px} 50%{height:25px} }
